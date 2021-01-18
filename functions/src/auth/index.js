@@ -26,8 +26,8 @@ const  checkUser = async  (req,res,next) =>{
 }
 const createUser = require('./createUser')
 
-app.use('/', checkUser, createUser)
-app.use('/test', createUser)
+app.use('/', checkUser, createUser) // dòng này không gọi được createUser
+app.use('/test', createUser) // Gọi đường dẫn'/test' thì bị dẫn đến '/'
 
 exports.createUser = functions.https.onRequest(app)
 
